@@ -29,17 +29,19 @@
 <body>
     <h1>MVC버전 댄서정보 모아보기</h1>
 
-    <ul>
-        <% for (Dancer d : (List<Dancer>)request.getAttribute("dancers")) { %>
-        <li>
-            # 이름: <%= d.getName() %>,
-            # 크루이름: <%= d.getCrewName() %>,
-            # 수준: <%= d.getDanceLevel() %>,
-            # 장르: <%= d.getGenres() %>
-        </li>
-        <% } %>
-    </ul>
     <a href="/mvc/v1/new">다시 댄서 등록하기</a>
+    <ul>
+        <%--        <% for (Dancer d : (List<Dancer>)request.getAttribute("dancers")) { %>--%>
+        <c:forEach var="d" items="${dancers}">
+        <li>
+            # 이름: ${d.name},
+            # 크루이름: ${d.crewName},
+            # 수준: ${d.danceLevel},
+            # 장르: ${d.genres}
+        </li>
+        </c:forEach>
+        <%--        <% } %>--%>
+    </ul>
 
 </body>
 </html>
